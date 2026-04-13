@@ -110,7 +110,7 @@ export default function DashboardLayout({ children, title, subtitle, navItems, o
                         {item.children.map((child) => (
                           <li key={child.id}>
                             <button
-                              onClick={() => { navigate(child.path); setSidebarOpen(false); }}
+                              onClick={() => { if (onNavClick) onNavClick(child.path); else navigate(child.path); setSidebarOpen(false); }}
                               className={cn(
                                 "w-full text-left px-3 py-2 rounded-lg text-sm transition-colors",
                                 isActive(child.path)
@@ -127,7 +127,7 @@ export default function DashboardLayout({ children, title, subtitle, navItems, o
                   </div>
                 ) : (
                   <button
-                    onClick={() => { navigate(item.path); setSidebarOpen(false); }}
+                    onClick={() => { if (onNavClick) onNavClick(item.path); else navigate(item.path); setSidebarOpen(false); }}
                     className={cn(
                       "w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                       isActive(item.path)
