@@ -3,6 +3,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import { Plus, Trash2, Send } from "lucide-react";
+import PdfDownloadButton from "./PdfDownloadButton";
+import JobAnalysisPdfTemplate from "./JobAnalysisPdfTemplate";
 
 interface DutyRow {
   task: string;
@@ -248,7 +250,12 @@ export default function JobAnalysisForm() {
         </div>
 
         {/* Submit */}
-        <div className="flex justify-end pt-4 border-t border-border">
+        <div className="flex flex-wrap gap-3 justify-end pt-4 border-t border-border">
+          <PdfDownloadButton
+            targetId="job-analysis-pdf-content"
+            filename="Job_Analysis_Form.pdf"
+            label="Download as PDF"
+          />
           <button
             onClick={handleSubmit}
             disabled={loading || !form.fullName.trim() || !form.jobPurpose.trim()}
@@ -259,6 +266,22 @@ export default function JobAnalysisForm() {
           </button>
         </div>
       </div>
+
+      {/* Hidden PDF Template */}
+      <JobAnalysisPdfTemplate data={{
+        fullName: form.fullName,
+        positionTitle: form.positionTitle,
+        officeDivision: form.officeDivision,
+        sectionUnit: form.sectionUnit,
+        alternatePosition: form.alternatePosition,
+        jobPurpose: form.jobPurpose,
+        mainDuties: form.mainDuties,
+        duties,
+        skills,
+        toolsEquipment: form.toolsEquipment,
+        challenges: form.challenges,
+        additionalComments: form.additionalComments,
+      }} />
     </div>
   );
 }
