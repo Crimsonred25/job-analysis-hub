@@ -23,6 +23,7 @@ interface DashboardLayoutProps {
   navItems: NavItem[];
   onNavClick?: (path: string) => void;
   onProfileClick?: () => void;
+  hideHeader?: boolean;
 }
 
 export default function DashboardLayout({ children, title, subtitle, navItems, onNavClick, onProfileClick }: DashboardLayoutProps) {
