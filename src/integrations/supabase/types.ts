@@ -18,8 +18,6 @@ export type Database = {
         Row: {
           additional_comments: string | null
           alternate_position: string | null
-          approved_at: string | null
-          approved_by: string | null
           challenges: string | null
           created_at: string
           full_name: string
@@ -31,8 +29,7 @@ export type Database = {
           required_competencies: Json | null
           secondary_duties: Json | null
           section_unit: string | null
-          signature_url: string | null
-          status: Database["public"]["Enums"]["form_status"]
+          status: string
           submitted_at: string | null
           tools_equipment: string | null
           updated_at: string
@@ -41,8 +38,6 @@ export type Database = {
         Insert: {
           additional_comments?: string | null
           alternate_position?: string | null
-          approved_at?: string | null
-          approved_by?: string | null
           challenges?: string | null
           created_at?: string
           full_name?: string
@@ -54,8 +49,7 @@ export type Database = {
           required_competencies?: Json | null
           secondary_duties?: Json | null
           section_unit?: string | null
-          signature_url?: string | null
-          status?: Database["public"]["Enums"]["form_status"]
+          status?: string
           submitted_at?: string | null
           tools_equipment?: string | null
           updated_at?: string
@@ -64,8 +58,6 @@ export type Database = {
         Update: {
           additional_comments?: string | null
           alternate_position?: string | null
-          approved_at?: string | null
-          approved_by?: string | null
           challenges?: string | null
           created_at?: string
           full_name?: string
@@ -77,8 +69,7 @@ export type Database = {
           required_competencies?: Json | null
           secondary_duties?: Json | null
           section_unit?: string | null
-          signature_url?: string | null
-          status?: Database["public"]["Enums"]["form_status"]
+          status?: string
           submitted_at?: string | null
           tools_equipment?: string | null
           updated_at?: string
@@ -88,97 +79,40 @@ export type Database = {
       }
       nominations: {
         Row: {
-          admin_signature_url: string | null
-          alternate_contact: string | null
-          alternate_date_hired: string | null
-          alternate_email: string | null
-          alternate_employment_status: string | null
-          alternate_gender: string | null
-          alternate_id_number: string | null
-          alternate_name: string | null
-          alternate_position: string | null
-          alternate_salary_grade: string | null
-          alternate_service_years: string | null
           approved_at: string | null
-          approved_by: string | null
           competency_type: string | null
           created_at: string
-          date_filed: string | null
           disapproval_reason: string | null
-          endorsee_name: string | null
-          gedsi_responses: Json | null
           id: string
           justification: string | null
-          signature_url: string | null
-          social_inclusion_responses: Json | null
-          status: Database["public"]["Enums"]["nomination_status"]
-          supervisor_id: string | null
+          status: string
           training_id: string
           updated_at: string
           user_id: string
-          venue: string | null
         }
         Insert: {
-          admin_signature_url?: string | null
-          alternate_contact?: string | null
-          alternate_date_hired?: string | null
-          alternate_email?: string | null
-          alternate_employment_status?: string | null
-          alternate_gender?: string | null
-          alternate_id_number?: string | null
-          alternate_name?: string | null
-          alternate_position?: string | null
-          alternate_salary_grade?: string | null
-          alternate_service_years?: string | null
           approved_at?: string | null
-          approved_by?: string | null
           competency_type?: string | null
           created_at?: string
-          date_filed?: string | null
           disapproval_reason?: string | null
-          endorsee_name?: string | null
-          gedsi_responses?: Json | null
           id?: string
           justification?: string | null
-          signature_url?: string | null
-          social_inclusion_responses?: Json | null
-          status?: Database["public"]["Enums"]["nomination_status"]
-          supervisor_id?: string | null
+          status?: string
           training_id: string
           updated_at?: string
           user_id: string
-          venue?: string | null
         }
         Update: {
-          admin_signature_url?: string | null
-          alternate_contact?: string | null
-          alternate_date_hired?: string | null
-          alternate_email?: string | null
-          alternate_employment_status?: string | null
-          alternate_gender?: string | null
-          alternate_id_number?: string | null
-          alternate_name?: string | null
-          alternate_position?: string | null
-          alternate_salary_grade?: string | null
-          alternate_service_years?: string | null
           approved_at?: string | null
-          approved_by?: string | null
           competency_type?: string | null
           created_at?: string
-          date_filed?: string | null
           disapproval_reason?: string | null
-          endorsee_name?: string | null
-          gedsi_responses?: Json | null
           id?: string
           justification?: string | null
-          signature_url?: string | null
-          social_inclusion_responses?: Json | null
-          status?: Database["public"]["Enums"]["nomination_status"]
-          supervisor_id?: string | null
+          status?: string
           training_id?: string
           updated_at?: string
           user_id?: string
-          venue?: string | null
         }
         Relationships: [
           {
@@ -192,59 +126,38 @@ export type Database = {
       }
       profiles: {
         Row: {
-          avatar_url: string | null
-          contact_number: string | null
           created_at: string
-          date_hired: string | null
           email: string | null
           employee_id: string | null
-          employment_status: string | null
           full_name: string
-          gender: string | null
           id: string
           office_division: string | null
           position_title: string | null
-          salary_grade: string | null
           section_unit: string | null
-          supervisor_name: string | null
           updated_at: string
           user_id: string
         }
         Insert: {
-          avatar_url?: string | null
-          contact_number?: string | null
           created_at?: string
-          date_hired?: string | null
           email?: string | null
           employee_id?: string | null
-          employment_status?: string | null
           full_name?: string
-          gender?: string | null
           id?: string
           office_division?: string | null
           position_title?: string | null
-          salary_grade?: string | null
           section_unit?: string | null
-          supervisor_name?: string | null
           updated_at?: string
           user_id: string
         }
         Update: {
-          avatar_url?: string | null
-          contact_number?: string | null
           created_at?: string
-          date_hired?: string | null
           email?: string | null
           employee_id?: string | null
-          employment_status?: string | null
           full_name?: string
-          gender?: string | null
           id?: string
           office_division?: string | null
           position_title?: string | null
-          salary_grade?: string | null
           section_unit?: string | null
-          supervisor_name?: string | null
           updated_at?: string
           user_id?: string
         }
@@ -255,52 +168,43 @@ export type Database = {
           competencies: string | null
           cost: string | null
           created_at: string
-          description: string | null
-          duration: string | null
-          end_date: string | null
+          description: string
+          duration: string
           id: string
-          is_active: boolean | null
-          level: string | null
+          is_active: boolean
+          level: string
           mode: string | null
-          start_date: string | null
           target: string | null
           title: string
           updated_at: string
-          venue: string | null
         }
         Insert: {
           competencies?: string | null
           cost?: string | null
           created_at?: string
-          description?: string | null
-          duration?: string | null
-          end_date?: string | null
+          description?: string
+          duration?: string
           id?: string
-          is_active?: boolean | null
-          level?: string | null
+          is_active?: boolean
+          level?: string
           mode?: string | null
-          start_date?: string | null
           target?: string | null
           title: string
           updated_at?: string
-          venue?: string | null
         }
         Update: {
           competencies?: string | null
           cost?: string | null
           created_at?: string
-          description?: string | null
-          duration?: string | null
-          end_date?: string | null
+          description?: string
+          duration?: string
           id?: string
-          is_active?: boolean | null
-          level?: string | null
+          is_active?: boolean
+          level?: string
           mode?: string | null
-          start_date?: string | null
           target?: string | null
           title?: string
           updated_at?: string
-          venue?: string | null
         }
         Relationships: []
       }
@@ -312,7 +216,7 @@ export type Database = {
         }
         Insert: {
           id?: string
-          role?: Database["public"]["Enums"]["app_role"]
+          role: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Update: {
@@ -337,18 +241,6 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "supervisor" | "employee"
-      form_status:
-        | "draft"
-        | "submitted"
-        | "supervisor_approved"
-        | "approved"
-        | "rejected"
-      nomination_status:
-        | "pending"
-        | "supervisor_approved"
-        | "admin_approved"
-        | "finalized"
-        | "disapproved"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -477,20 +369,6 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "supervisor", "employee"],
-      form_status: [
-        "draft",
-        "submitted",
-        "supervisor_approved",
-        "approved",
-        "rejected",
-      ],
-      nomination_status: [
-        "pending",
-        "supervisor_approved",
-        "admin_approved",
-        "finalized",
-        "disapproved",
-      ],
     },
   },
 } as const
