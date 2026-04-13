@@ -21,9 +21,11 @@ interface DashboardLayoutProps {
   title: string;
   subtitle: string;
   navItems: NavItem[];
+  onNavClick?: (path: string) => void;
+  onProfileClick?: () => void;
 }
 
-export default function DashboardLayout({ children, title, subtitle, navItems }: DashboardLayoutProps) {
+export default function DashboardLayout({ children, title, subtitle, navItems, onNavClick, onProfileClick }: DashboardLayoutProps) {
   const { profile, primaryRole, signOut } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
