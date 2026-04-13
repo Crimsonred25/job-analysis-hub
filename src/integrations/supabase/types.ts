@@ -14,6 +14,116 @@ export type Database = {
   }
   public: {
     Tables: {
+      job_analysis_forms: {
+        Row: {
+          additional_comments: string | null
+          alternate_position: string | null
+          challenges: string | null
+          created_at: string
+          full_name: string
+          id: string
+          job_purpose: string | null
+          main_duties: string | null
+          office_division: string | null
+          position_title: string | null
+          required_competencies: Json | null
+          secondary_duties: Json | null
+          section_unit: string | null
+          status: string
+          submitted_at: string | null
+          tools_equipment: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          additional_comments?: string | null
+          alternate_position?: string | null
+          challenges?: string | null
+          created_at?: string
+          full_name?: string
+          id?: string
+          job_purpose?: string | null
+          main_duties?: string | null
+          office_division?: string | null
+          position_title?: string | null
+          required_competencies?: Json | null
+          secondary_duties?: Json | null
+          section_unit?: string | null
+          status?: string
+          submitted_at?: string | null
+          tools_equipment?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          additional_comments?: string | null
+          alternate_position?: string | null
+          challenges?: string | null
+          created_at?: string
+          full_name?: string
+          id?: string
+          job_purpose?: string | null
+          main_duties?: string | null
+          office_division?: string | null
+          position_title?: string | null
+          required_competencies?: Json | null
+          secondary_duties?: Json | null
+          section_unit?: string | null
+          status?: string
+          submitted_at?: string | null
+          tools_equipment?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      nominations: {
+        Row: {
+          approved_at: string | null
+          competency_type: string | null
+          created_at: string
+          disapproval_reason: string | null
+          id: string
+          justification: string | null
+          status: string
+          training_id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          approved_at?: string | null
+          competency_type?: string | null
+          created_at?: string
+          disapproval_reason?: string | null
+          id?: string
+          justification?: string | null
+          status?: string
+          training_id: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          approved_at?: string | null
+          competency_type?: string | null
+          created_at?: string
+          disapproval_reason?: string | null
+          id?: string
+          justification?: string | null
+          status?: string
+          training_id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "nominations_training_id_fkey"
+            columns: ["training_id"]
+            isOneToOne: false
+            referencedRelation: "trainings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
@@ -50,6 +160,51 @@ export type Database = {
           section_unit?: string | null
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      trainings: {
+        Row: {
+          competencies: string | null
+          cost: string | null
+          created_at: string
+          description: string
+          duration: string
+          id: string
+          is_active: boolean
+          level: string
+          mode: string | null
+          target: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          competencies?: string | null
+          cost?: string | null
+          created_at?: string
+          description?: string
+          duration?: string
+          id?: string
+          is_active?: boolean
+          level?: string
+          mode?: string | null
+          target?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          competencies?: string | null
+          cost?: string | null
+          created_at?: string
+          description?: string
+          duration?: string
+          id?: string
+          is_active?: boolean
+          level?: string
+          mode?: string | null
+          target?: string | null
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }
