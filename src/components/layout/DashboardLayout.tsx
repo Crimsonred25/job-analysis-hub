@@ -183,14 +183,14 @@ export default function DashboardLayout({ children, title, subtitle, navItems, o
                 <Bell className="w-5 h-5" />
               </button>
             </div>
-            <div className="flex items-center gap-2 ml-2">
+            <button onClick={onProfileClick} className="flex items-center gap-2 ml-2 cursor-pointer hover:opacity-80 transition-opacity">
               <span className="w-10 h-10 rounded-full bg-brand-100 text-brand-600 border border-brand-300 flex items-center justify-center font-bold text-sm">
                 {initials}
               </span>
               <span className="hidden sm:block text-sm font-medium text-foreground">
                 {profile?.full_name || roleLabel}
               </span>
-            </div>
+            </button>
           </div>
         </header>
 
